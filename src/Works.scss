@@ -1,0 +1,142 @@
+.wroksBox{
+    width:calc(100% - 200px);
+    margin-left:200px;
+    padding:40px 0;
+    .worksInner{
+        width:calc(100% - 40px);
+        padding-right:40px;
+        .workBox{
+            width:calc(33% - 30px);
+            cursor: pointer;
+            text-align:center;
+            margin-bottom:40px;
+            p{
+                font-size:1.1em;
+                padding:5px 0;
+                
+            }
+            img{
+                border:1px solid #aaa;
+                width:100%;
+            }
+        }
+    }
+}
+
+//ポップアップ内の紹介部分
+.popWrokBox{
+    width:calc(100% - 80px);
+    padding:40px;
+    .imageBox{
+        width:45%;
+        padding-right:20px;
+        img{
+            width:100%;
+            border:1px solid #aaa;
+        }
+    }
+    .body{
+        width:calc(55% - 22px);
+        h3{
+            padding:0;
+            margin:0 0 15px 0;
+            font-weight:bold;
+            font-size:1.2em;
+        }
+        p{
+            line-height:1.9em;
+            margin-bottom:10px;
+        }
+        .h-line{
+            position: relative;
+            font-weight:bold;
+            font-size:1em;
+            padding:2px 25px;
+            margin:0 0 5px 0;
+            &:before{
+                position: absolute;
+                top:50%;
+                left:0px;
+                -webkit-transform : translateY(-50%);
+                transform : translateY(-50%);
+                content:'';
+                background:#71a28b;
+                width:0.8em;
+                height:0.8em;
+            }
+        }
+
+    }
+
+}
+
+
+.popup{
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    z-index:10;
+    .popup_wrap{
+        height:100vh;
+        position: absolute;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.4);
+        cursor: pointer;
+    }
+    .whir{
+        position:absolute;
+        z-index:11;
+        top:0;
+        bottom:0;
+        left:0;
+        right:0;
+        width:80%;
+        height:80%;
+        min-width:872px;
+        min-height:544px;
+        background:white;
+        margin:auto;
+        border-radius:10px;
+        
+    }
+}
+.popup_toggle_effect{
+    animation-name:leftToright01;
+    animation-duration:0.5s;
+    animation-fill-mode: forwards;
+    transform: scale(1);
+}
+.popup_toggle_effect_de{
+    animation-name:leftTorightBack02;
+    animation-duration:0.5s;
+    animation-fill-mode: forwards;
+    pointer-events: none;
+    transform: scale(0);
+    
+}
+@keyframes leftToright01 {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes leftTorightBack02 {
+    0% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+    50%{
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    100%{
+        opacity: 0;
+        transform: translateY(-10px);
+        height:0;
+    }
+}
