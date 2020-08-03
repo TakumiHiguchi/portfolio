@@ -1,0 +1,146 @@
+
+@media screen and (max-width: 1000px) {
+    header.flex-jus-between{
+        display:none;
+    }
+    .smNone{
+        display:none;
+    }
+    .leftIndex{
+        font-size:1.4em;
+        padding:30px 0;
+        text-align:center;
+    }
+    .headSection{
+        width:100%;
+        height:100%;
+        background-image:url("https://hiiragi000.xsrv.jp/images/portfolio/header.jpeg");
+        background-size:cover;
+        background-attachment: fixed;
+        .headSection-inner{
+            width:100vw;
+            height:100%;
+            background:rgba(0,0,0,0.3);
+            position:relative;
+            .headSction-title{
+                .titleBox{
+                    width:100vw;
+                    position:absolute;
+                    bottom:0;
+                    top:0;
+                    margin:auto;
+                    height:85px;
+                    h1{
+                        color:white;
+                        font-weight:bold;
+                        font-size:2em;
+                        text-align:center;
+                        margin-bottom:10px;
+                    }
+                    .subtitle{
+                        color:white;
+                        font-weight:bold;
+                        font-size:1.1em;
+                        margin-bottom:10px;
+                        text-align:center;
+                    }
+                }
+                .linkBox{
+                    text-align:center;
+                }
+                .linkBox a{
+                    display:inline-block;
+                    text-decoration:none;
+                    border:1px solid white;
+                    color:white;
+                    padding:8px 25px;
+                    border-radius:10px;
+                    margin:10px 10px 10px 0;
+                    &:hover{
+                        transform:scale(0.95);
+                        transition-duration:0.3s;
+                    }
+                    svg{
+                        animation-name:leftToright01NU;
+                        animation-duration:1s;
+                        animation-iteration-count:infinite;
+                        animation-fill-mode: forwards;
+                        pointer-events: none;
+                    }
+                }
+            }
+        }
+    }
+    div.conceptBox{
+        width:calc(100% - 40px);
+        padding:0 20px 40px;
+        flex-wrap:wrap;
+        h3{
+            font-size:1.2em;
+            font-weight:bold;
+            color:#4cba7a;
+            line-height:2em;
+            margin-bottom:20px;
+        }
+        p{
+            
+            font-size:1em;
+            color:#4cba7a;
+            margin-bottom:10px;
+        }
+        .absConcept{
+            width:100%;
+            order:2;
+        }
+        .imgConcept{
+            order:1;
+            width:100%;
+            margin-bottom:10px;
+            img{
+                width:100%;
+            }
+        }
+    }
+    //skils
+    tspan{
+        color:white;
+    }
+    .skilBox{
+        width:calc(100% - 40px);
+        padding:0 20px 40px;
+        p{
+            font-size:1em;
+            color:#4cba7a;
+            margin-bottom:10px;
+        }
+        .flex-jus-around{
+            flex-wrap:wrap;
+        }
+    }
+    
+    .secSkils{
+        background-size:cover;
+        background-attachment: fixed;
+        background-image:url("https://hiiragi000.xsrv.jp/images/portfolio/header.jpeg");
+        .lound{
+            background:rgba(255,255,255,0.9);
+        }
+    }
+    
+    //フッター
+    footer{
+        padding:80px 0 40px 0;
+        div{
+            color:white;
+        }
+    }
+    .secNews{
+        .section-inner{
+            h2{
+                color:white;
+            }
+        }
+    }
+}
+
+

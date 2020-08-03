@@ -69,13 +69,27 @@ export default class Skils extends Component{
     constructor(props){
         super(props);
         this.state={
+            device: 'pc',
             size:{
                 width: 0,
                 height: 0
             }
         }
     }
-    
+    componentDidMount() {
+      const ua = window.navigator.userAgent.toLowerCase();
+      if (ua.indexOf('iphone') > 0 || ua.indexOf('ipod') > 0 || ua.indexOf('android') > 0 && ua.indexOf('mobile') > 0) {
+        this.setState({ device: 'sp' });
+      } else if (ua.indexOf('ipad') > 0 || ua.indexOf('android') > 0) {
+        // iOS12 まで
+        this.setState({ device: 'tab' });
+      } else if (ua.indexOf('ipad') > -1 || ua.indexOf('macintosh') > -1 && 'ontouchend' in document) {
+        // iOS13 以降
+        this.setState({ device: 'tab' });
+      } else {
+        this.setState({ device: 'pc' });
+      }
+    }
     componentWillMount () {
         window.addEventListener('load', () =>{
             this.getWindowSize();
@@ -96,22 +110,27 @@ export default class Skils extends Component{
     
     render(){
         let width = this.state.size.width - 200;
+        let psPosition = [3,6,9];
+        if(this.state.device != "pc"){
+          psPosition = [1,2,3];
+          width = this.state.size.width;
+        }
         return(
                <div className="skilBox ">
                    <div className="flex-jus-around">
-                       <RadarChart cx={width/6} cy={width/6} outerRadius={width/9} width={width/3} height={width/3} data={data}>
+                       <RadarChart cx={width/psPosition[1]} cy={width/psPosition[1]} outerRadius={width/psPosition[2]} width={width/psPosition[0]} height={width/psPosition[0]} data={data}>
                          <PolarGrid />
                          <PolarAngleAxis dataKey="subject" />
                          <PolarRadiusAxis />
                          <Radar name="Mike" dataKey="A" stroke="#4cba7a" fill="#4cba7a" fillOpacity={0.6} />
                        </RadarChart>
-                       <RadarChart cx={width/6} cy={width/6} outerRadius={width/9} width={width/3} height={width/3} data={data1}>
+                       <RadarChart cx={width/psPosition[1]} cy={width/psPosition[1]} outerRadius={width/psPosition[2]} width={width/psPosition[0]} height={width/psPosition[0]} data={data1}>
                          <PolarGrid />
                          <PolarAngleAxis dataKey="subject" />
                          <PolarRadiusAxis />
                          <Radar name="Mike" dataKey="A" stroke="#4cba7a" fill="#4cba7a" fillOpacity={0.6} />
                        </RadarChart>
-                       <RadarChart cx={width/6} cy={width/6} outerRadius={width/9} width={width/3} height={width/3} data={data2}>
+                       <RadarChart cx={width/psPosition[1]} cy={width/psPosition[1]} outerRadius={width/psPosition[2]} width={width/psPosition[0]} height={width/psPosition[0]} data={data2}>
                          <PolarGrid />
                          <PolarAngleAxis dataKey="subject" />
                          <PolarRadiusAxis />

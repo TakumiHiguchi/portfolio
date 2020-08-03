@@ -1,20 +1,41 @@
 import React,{Component} from 'react';
+import Slider from "react-slick";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; //fontaweresomeのインポート
 import { faChevronRight,faChevronDown,faShareAlt,faShieldAlt,faBook } from "@fortawesome/free-solid-svg-icons";//矢印アイコン
-import './Works.scss'
+import './css/pc/Works.scss'
+import './css/sm/smWorks.scss'
+
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const IMAGEURL = "https://hiiragi000.xsrv.jp";
 
-const images = [[IMAGEURL+"/images/portfolio/Proofly.jpeg"],
-                [IMAGEURL+"/images/portfolio/Nurture.jpeg",IMAGEURL+"/images/portfolio/Nurture1.jpeg",IMAGEURL+"/images/portfolio/Nurture2.jpeg",IMAGEURL+"/images/portfolio/Nurture3.jpeg"],
-                [IMAGEURL+"/images/portfolio/musicBW.jpeg"],
-                [IMAGEURL+"/images/portfolio/bitcoinex1.jpeg"],
-                [IMAGEURL+"/images/portfolio/portfolio.jpeg"],
-                [IMAGEURL+"/images/portfolio/portfolio.jpeg"]];
+const images = [
+    [IMAGEURL+"/images/portfolio/Proofly.jpeg"],
+    [IMAGEURL+"/images/portfolio/Nurture.jpeg",IMAGEURL+"/images/portfolio/Nurture1.jpeg",IMAGEURL+"/images/portfolio/Nurture2.jpeg",IMAGEURL+"/images/portfolio/Nurture3.jpeg"],
+    [IMAGEURL+"/images/portfolio/musicBW.jpeg"],
+    [IMAGEURL+"/images/portfolio/bitcoinex1.jpeg"],
+    [IMAGEURL+"/images/portfolio/portfolio.jpeg"],
+    [IMAGEURL+"/images/portfolio/portfolio.jpeg"]
+];
+
+const content=[
+    [],
+    ["ランディングページ","ログイン画面","週表示のカレンダー","カレンダー設定画面"],
+]
 
 const ChevronRight ={
     marginLeft:"10px"
-  }
+}
+
+const settings = {
+    dots: true,
+    infinite: true,
+    autoplay: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    speed: 500
+};
 export default class Works extends Component{
     constructor(props){
         super(props);
@@ -69,7 +90,7 @@ class Popup extends Component{
     Body(type){
         if(type == 0){
             return(
-                   <div className="popWrokBox flex">
+                   <div className="popWrokBox flex scroll-y">
                         <div className="imageBox">
                             <img alt="Proofly" src={images[type][0]} />
                         </div>
@@ -78,18 +99,23 @@ class Popup extends Component{
                    );
         }else if(type == 1){
             return(
-                   <div className="popWrokBox flex">
+                   <div className="popWrokBox flex scroll-y">
                         <div className="imageBox">
-                            {images[type].map((data)=>
-                                <img alt="Nurture" src={data} />
-                            )}
+                            <Slider {...settings}>
+                                {images[type].map((data,index)=>
+                                    <>
+                                        <img alt="Nurture" src={data} />
+                                        <div className="flex-jus-center content">{content[type][index]}</div>
+                                    </>
+                                )}
+                            </Slider>
                         </div>
                         <Nurture />
                    </div>
                    );
         }else if(type == 2){
             return(
-                   <div className="popWrokBox flex">
+                   <div className="popWrokBox flex scroll-y">
                         <div className="imageBox">
                             <img alt="music.branchwith" src={images[type][0]} />
                         </div>
@@ -98,7 +124,7 @@ class Popup extends Component{
                    );
         }else if(type == 3){
             return(
-                   <div className="popWrokBox flex">
+                   <div className="popWrokBox flex scroll-y">
                         <div className="imageBox">
                             {images[type].map((data)=>
                                 <img alt="bitcoin explorer" src={data} />
@@ -109,11 +135,11 @@ class Popup extends Component{
                    );
         }else{
             return(
-            <div className="popWrokBox flex">
+            <div className="popWrokBox flex scroll-y">
                  <div className="imageBox">
                      <img alt="Takumi's portfolio" src={images[type][0]} />
                  </div>
-                 
+                 <Portfolio />
             </div>
             );
         }
@@ -215,6 +241,28 @@ const Bitcoin = (props) =>{
                <div className="h-line">使用言語、フレームワーク等</div>
                <div className="lineIncontentbox">
                    <p>HTML、SCSS(CSS)、jQuery(javaScript)、Apache、Bitcoin-cli、Ruby、Ruby on Rails、git、Heroku、CentOS7</p>
+               </div>
+               <div className="h-line">Links</div>
+               <div className="lineIncontentbox">
+                   <a class="linkblock LBcolor1" href="https://techlife.branchwith.com/blockchain/btc_exproler" target="_blank">Demo<FontAwesomeIcon style={ChevronRight} icon={faChevronRight} /></a>
+                   <a class="linkblock LBcolor2" href="https://github.com/TakumiHiguchi/techlife.branchwith" target="_blank">github<FontAwesomeIcon style={ChevronRight} icon={faChevronRight} /></a>
+               </div>
+           </div>
+           );
+}
+
+const Portfolio = (props) =>{
+    return(
+           <div className="body">
+               <h3>Bitcoin explorer</h3>
+               <div class="lineIncontentbox">
+                   <p>このwebページです。フロントエンド言語としてHTML、SCSS 、React.jsを使用し、バックエンド言語としてRubyを使用しています。また、RubyのフレームワークとしてRuby on Railsを使用しています。</p>
+                   <p>「自分の魅力は分かりやすく、直感的であるランディングページでなければ伝わらない」という理念のもと制作しました。</p>
+                   <p>制作時間: 3日</p><p>運営開始日: 2020年1月21日</p>
+               </div>
+               <div className="h-line">使用言語、フレームワーク等</div>
+               <div className="lineIncontentbox">
+                   <p>HTML、SCSS(CSS)、React.js(javaScript)、JSX、slick.js、Ruby、Ruby on Rails、git、Heroku</p>
                </div>
                <div className="h-line">Links</div>
                <div className="lineIncontentbox">

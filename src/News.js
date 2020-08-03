@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import axios from 'axios';
-import './News.scss'
+import './css/pc/News.scss'
+import './css/sm/smNews.scss'
 
 const ENDPOINT = "https://www.proofly.jp"
 
@@ -50,7 +51,7 @@ export default class News extends Component{
                             <a href="https://www.proofly.jp/nuser/takumiHiguchi/article" className="more">More</a>
                         </div>
                     </div>
-                    <div className="news">
+                    <div className="news smNone">
                         <h2>News</h2>
                     </div>
                </div>
@@ -79,7 +80,7 @@ const BlogLine = (props) =>{
                     <div className="title">
                         {props.data.title}
                     </div>
-                    <div className="description">
+                    <div className="description smNone">
                         {props.data.description}
                     </div>
                     <div className="user">

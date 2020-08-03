@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
-import './App.scss';
+import './css/pc/App.scss';
+import './css/sm/smApp.scss';
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; //fontaweresomeのインポート
 import { faChevronRight,faChevronDown,faShareAlt,faShieldAlt,faBook } from "@fortawesome/free-solid-svg-icons";//矢印アイコン
@@ -23,17 +24,28 @@ function App() {
       <section className="headSection">
           <div className="headSection-inner">
               <Header />
-              <h2 className="leftIndex">
+              <h2 className="smNone leftIndex">
                     About
               </h2>
               <div className="headSction-title">
-                  <h1>Takumi's portfolio</h1>
-                  <div>Web Enginner/Blockchain Engineer</div>
-                  <p>エンジニアTakumiのポートフォリオサイト。エンジニアとしての活動内容と、成長した記録をまとめています。</p>
-                  <p>「あなたに私の魅力が伝わって欲しい」そんな想いでこのサイトを制作しました。</p>
-                  <p>どうぞお時間の許す限りサイト内をご散策ください。</p>
-                  <a href="https://twitter.com/taku_blockchain">Twitter<FontAwesomeIcon style={ChevronRight} icon={faChevronRight} /></a>
-                  <a href="https://github.com/TakumiHiguchi/">Github<FontAwesomeIcon style={ChevronRight} icon={faChevronRight} /></a>
+                <div className="titleBox">
+                    <h1>Takumi's portfolio</h1>
+                    <div className="subtitle">Web Enginner/Blockchain Engineer</div>
+                    <div className="linkBox pcNone">
+                    <a href="https://twitter.com/taku_blockchain">Twitter<FontAwesomeIcon style={ChevronRight} icon={faChevronRight} /></a>
+                    <a href="https://github.com/TakumiHiguchi/">Github<FontAwesomeIcon style={ChevronRight} icon={faChevronRight} /></a>
+                </div>
+                </div>
+                <div className="hContent smNone">
+                    <p>エンジニアTakumiのポートフォリオサイト。エンジニアとしての活動内容と、成長した記録をまとめています。</p>
+                    <p>「あなたに私の魅力が伝わって欲しい」そんな想いでこのサイトを制作しました。</p>
+                    <p>どうぞお時間の許す限りサイト内をご散策ください。</p>
+                    
+                </div>
+                <div className="linkBox smNone">
+                    <a href="https://twitter.com/taku_blockchain">Twitter<FontAwesomeIcon style={ChevronRight} icon={faChevronRight} /></a>
+                    <a href="https://github.com/TakumiHiguchi/">Github<FontAwesomeIcon style={ChevronRight} icon={faChevronRight} /></a>
+                </div>
               </div>
               
           </div>
