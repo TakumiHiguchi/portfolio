@@ -1,16 +1,20 @@
 import React,{Component} from 'react';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; //fontaweresomeのインポート
+import { faChevronRight,faChevronDown,faShareAlt,faShieldAlt,faBook } from "@fortawesome/free-solid-svg-icons";//矢印アイコン
 import './Works.scss'
 
 const IMAGEURL = "https://hiiragi000.xsrv.jp";
 
 const images = [[IMAGEURL+"/images/portfolio/Proofly.jpeg"],
-                [IMAGEURL+"/images/portfolio/Nurture.jpeg"],
+                [IMAGEURL+"/images/portfolio/Nurture.jpeg",IMAGEURL+"/images/portfolio/Nurture1.jpeg",IMAGEURL+"/images/portfolio/Nurture2.jpeg",IMAGEURL+"/images/portfolio/Nurture3.jpeg"],
                 [IMAGEURL+"/images/portfolio/musicBW.jpeg"],
                 [IMAGEURL+"/images/portfolio/bitcoinex1.jpeg"],
-                [IMAGEURL+"/images/portfolio/Proofly.jpeg"],
-                [IMAGEURL+"/images/portfolio/Proofly.jpeg"]];
+                [IMAGEURL+"/images/portfolio/portfolio.jpeg"],
+                [IMAGEURL+"/images/portfolio/portfolio.jpeg"]];
 
-
+const ChevronRight ={
+    marginLeft:"10px"
+  }
 export default class Works extends Component{
     constructor(props){
         super(props);
@@ -34,22 +38,22 @@ export default class Works extends Component{
                                 <p>Proofly</p>
                             </div>
                             <div className="workBox" onClick={() => this.PopupToggle(1) }>
-                                <img alt="Proofly" src={IMAGEURL+"/images/portfolio/Nurture.jpeg"} />
+                                <img alt="Nurture" src={IMAGEURL+"/images/portfolio/Nurture.jpeg"} />
                                 <p>N:urture</p>
                             </div>
                             <div className="workBox" onClick={() => this.PopupToggle(2) }>
-                                <img alt="Proofly" src={IMAGEURL+"/images/portfolio/musicBW.jpeg"} />
+                                <img alt="musicBW" src={IMAGEURL+"/images/portfolio/musicBW.jpeg"} />
                                 <p>music.branchwith</p>
                             </div>
                         </div>
                         <div className="flex-jus-between worksInner">
                             <div className="workBox" onClick={() => this.PopupToggle(3) }>
-                                <img alt="Proofly" src={IMAGEURL+"/images/portfolio/bitcoinex1.jpeg"} />
+                                <img alt="bitcoinex1" src={IMAGEURL+"/images/portfolio/bitcoinex1.jpeg"} />
                                 <p>Bitcoin explorer</p>
                             </div>
                             <div className="workBox" onClick={() => this.PopupToggle(4) }>
-                                <img alt="Proofly" src={IMAGEURL+"/images/portfolio/Proofly.jpeg"} />
-                                <p>Proofly</p>
+                                <img alt="Proofly" src={IMAGEURL+"/images/portfolio/portfolio.jpeg"} />
+                                <p>Takumi's Portfolio</p>
                             </div>
                             <div className="workBox">
                             </div>
@@ -76,7 +80,9 @@ class Popup extends Component{
             return(
                    <div className="popWrokBox flex">
                         <div className="imageBox">
-                            <img alt="Nurture" src={images[type][0]} />
+                            {images[type].map((data)=>
+                                <img alt="Nurture" src={data} />
+                            )}
                         </div>
                         <Nurture />
                    </div>
@@ -94,7 +100,9 @@ class Popup extends Component{
             return(
                    <div className="popWrokBox flex">
                         <div className="imageBox">
-                            <img alt="music.branchwith" src={images[type][0]} />
+                            {images[type].map((data)=>
+                                <img alt="bitcoin explorer" src={data} />
+                            )}
                         </div>
                         <Bitcoin />
                    </div>
@@ -103,7 +111,7 @@ class Popup extends Component{
             return(
             <div className="popWrokBox flex">
                  <div className="imageBox">
-                     <img alt="Proofly" src={images[type][0]} />
+                     <img alt="Takumi's portfolio" src={images[type][0]} />
                  </div>
                  
             </div>
@@ -126,7 +134,7 @@ class Popup extends Component{
 
 const Proofly = (props) =>{
     return(
-           <div className="body">
+           <div className="body scroll-y">
                <h3>Proofly</h3>
                <div className="lineIncontentbox">
                    <p>indexを承認制にした文章投稿サイトです。記事をERC721の規格に沿ってトークン化し著作権を紐付け、トークンを売買することで、記事の著作権を”スマートに”移動できる環境の構築を目指しています。</p>
@@ -140,8 +148,8 @@ const Proofly = (props) =>{
                </div>
                <div className="h-line">Links</div>
                <div className="lineIncontentbox">
-                   <a className="linkblock LBcolor1" href="https://www.proofly.jp" target="_blank">Demo</a>
-                   <a className="linkblock LBcolor2" href="https://github.com/TakumiHiguchi/Proofly" target="_blank">github</a>
+                   <a className="linkblock LBcolor1" href="https://www.proofly.jp" target="_blank">Demo<FontAwesomeIcon style={ChevronRight} icon={faChevronRight} /></a>
+                   <a className="linkblock LBcolor2" href="https://github.com/TakumiHiguchi/Proofly" target="_blank">github<FontAwesomeIcon style={ChevronRight} icon={faChevronRight} /></a>
                </div>
            </div>
            );
@@ -149,13 +157,13 @@ const Proofly = (props) =>{
 
 const Nurture = (props) =>{
     return(
-           <div className="body">
+           <div className="body scroll-y">
                <h3>N:urture</h3>
                <div class="lineIncontentbox">
-                   <p>日本大学生のための時間割管理アプリです。10年間分の時間割を、学期別に保存して簡単に見ることができます。</p>
+                   <p>日本大学生のための時間割管理アプリです。10年間分の時間割を、学期別にカレンダーという枠組みの中に保存して簡単に見ることができます。</p>
+                   <p>作成したカレンダーは友人や先生、先輩と共有できます。</p>
                    <p>React.jsを初めて採用した作品で、SPAで制作しました。また、SPAで初めて、Oauth2での認証を導入しました。</p>
-                   <p>現在製作中のため、DEMOは一部の機能しか公開されていません。</p>
-                   <p>制作時間: -日</p><p>運営開始日: 2020年-月-日</p><p>運営期間: -</p>
+                   <p>制作期間: ver2.0: 2020/6/15 ~ 2020/7/31</p><p>運営開始日: 2020年8月1日</p><p>運営期間: -</p>
                </div>
                <div className="h-line">使用言語、フレームワーク等</div>
                <div className="lineIncontentbox">
@@ -163,9 +171,9 @@ const Nurture = (props) =>{
                </div>
                <div className="h-line">Links</div>
                <div className="lineIncontentbox">
-                   <a className="linkblock LBcolor1" href="http://java.cse.ce.nihon-u.ac.jp/daikibo2020/u306171/" target="_blank">Demo</a>
-                   <a className="linkblock LBcolor1" href="https://github.com/TakumiHiguchi/Nurture-front" target="_blank">github(front)</a>
-                   <a className="linkblock LBcolor2" href="https://github.com/TakumiHiguchi/Nurture-backendAPI" target="_blank">github(API)</a>
+                   <div><a className="linkblock LBcolor1" href="https://java.cse.ce.nihon-u.ac.jp/daikibo2020/u306171/" target="_blank">Demo (Javaサーバ)<FontAwesomeIcon style={ChevronRight} icon={faChevronRight} /></a></div>
+                   <a className="linkblock LBcolor1" href="https://github.com/TakumiHiguchi/Nurture-front" target="_blank">github(front)<FontAwesomeIcon style={ChevronRight} icon={faChevronRight} /></a>
+                   <a className="linkblock LBcolor2" href="https://github.com/TakumiHiguchi/Nurture-backendAPI" target="_blank">github(API)<FontAwesomeIcon style={ChevronRight} icon={faChevronRight} /></a>
                </div>
            </div>
            );
@@ -187,8 +195,8 @@ const MBW = (props) =>{
                </div>
                <div className="h-line">Links</div>
                <div className="lineIncontentbox">
-                   <a className="linkblock LBcolor1" href="https://mbw6.herokuapp.com" target="_blank">Demo</a>
-                   <a className="linkblock LBcolor2" href="https://github.com/TakumiHiguchi/music.branchwith" target="_blank">github</a>
+                   <a className="linkblock LBcolor1" href="https://mbw6.herokuapp.com" target="_blank">Demo<FontAwesomeIcon style={ChevronRight} icon={faChevronRight} /></a>
+                   <a className="linkblock LBcolor2" href="https://github.com/TakumiHiguchi/music.branchwith" target="_blank">github<FontAwesomeIcon style={ChevronRight} icon={faChevronRight} /></a>
                </div>
            </div>
            );
@@ -210,8 +218,8 @@ const Bitcoin = (props) =>{
                </div>
                <div className="h-line">Links</div>
                <div className="lineIncontentbox">
-                   <a class="linkblock LBcolor1" href="https://techlife.branchwith.com/blockchain/btc_exproler" target="_blank">Demo</a>
-                   <a class="linkblock LBcolor2" href="https://github.com/TakumiHiguchi/techlife.branchwith" target="_blank">github</a>
+                   <a class="linkblock LBcolor1" href="https://techlife.branchwith.com/blockchain/btc_exproler" target="_blank">Demo<FontAwesomeIcon style={ChevronRight} icon={faChevronRight} /></a>
+                   <a class="linkblock LBcolor2" href="https://github.com/TakumiHiguchi/techlife.branchwith" target="_blank">github<FontAwesomeIcon style={ChevronRight} icon={faChevronRight} /></a>
                </div>
            </div>
            );

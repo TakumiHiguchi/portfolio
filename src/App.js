@@ -1,7 +1,10 @@
 import React,{Component} from 'react';
 import './App.scss';
 
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; //fontaweresomeのインポート
+import { faChevronRight,faChevronDown,faShareAlt,faShieldAlt,faBook } from "@fortawesome/free-solid-svg-icons";//矢印アイコン
+import { faCalendarCheck } from '@fortawesome/free-regular-svg-icons';
+import { faTwitter } from "@fortawesome/free-brands-svg-icons"; //twitterアイコン
 
 import Header from './Header';
 import News from './News';
@@ -10,14 +13,16 @@ import Skils from './Skils';
 
 const IMAGEURL = "https://hiiragi000.xsrv.jp";
 
-
+const ChevronRight ={
+    marginLeft:"10px"
+  }
 
 function App() {
   return (
     <div className="App">
-      <Header />
       <section className="headSection">
           <div className="headSection-inner">
+              <Header />
               <h2 className="leftIndex">
                     About
               </h2>
@@ -27,15 +32,17 @@ function App() {
                   <p>エンジニアTakumiのポートフォリオサイト。エンジニアとしての活動内容と、成長した記録をまとめています。</p>
                   <p>「あなたに私の魅力が伝わって欲しい」そんな想いでこのサイトを制作しました。</p>
                   <p>どうぞお時間の許す限りサイト内をご散策ください。</p>
+                  <a href="https://twitter.com/taku_blockchain">Twitter<FontAwesomeIcon style={ChevronRight} icon={faChevronRight} /></a>
+                  <a href="https://github.com/TakumiHiguchi/">Github<FontAwesomeIcon style={ChevronRight} icon={faChevronRight} /></a>
               </div>
               
           </div>
           
       </section>
-      <section className="section secConcept">
-          <div className="section-inner">
+      <section className="section secConcept backOp" id="concept">
+          <div className="section-inner opInner">
               <h2 className="leftIndex">
-                    CONCEPT
+                    Concept
               </h2>
               <div className="conceptBox flex">
                   <div className="absConcept">
@@ -51,7 +58,7 @@ function App() {
               </div>
           </div>
       </section>
-      <section className="section secSkils">
+      <section className="section secSkils" id="skils">
           <div className="section-inner lound">
               <h2 className="leftIndex">
                     My Skils
@@ -60,7 +67,7 @@ function App() {
           </div>
       </section>
           
-      <section className="section secWork">
+      <section className="section secWork" id="works">
           <div className="section-inner">
               <h2 className="leftIndex">
                     Wroks
@@ -70,7 +77,7 @@ function App() {
           </div>
       </section>
           
-      <section className="section secNews">
+      <section className="section secNews" id="eb">
           <div className="section-inner">
               <h2 className="leftIndex">
                     Engineer blog and News
@@ -80,6 +87,9 @@ function App() {
           </div>
           
       </section>
+      <footer className="flex-jus-center" id="contact">
+          <div>© 2019 - 2020　Takumi's portfolio</div>
+      </footer>
     </div>
   );
 }

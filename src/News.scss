@@ -2,8 +2,8 @@
     width:calc(100vw - 200px);
     margin-left:200px;
     .engineer{
-        width:calc(50% - 20px);
-        padding:40px 20px 40px 0;
+        width:calc(50% - 40px);
+        padding:40px 40px 40px 0;
         h2{
             font-size:1.4em;
             color:white;
@@ -59,12 +59,12 @@
         }
     }
     .news{
-        width:calc(50% - 20px);
-        padding:40px 0 40px 20px;
-        background:white;
+        width:calc(50% - 40px);
+        padding:40px 0 40px 40px;
         h2{
             font-size:1.4em;
             margin-bottom:20px;
+            color:white;
         }
         .newsLine{
             text-decoration:none;

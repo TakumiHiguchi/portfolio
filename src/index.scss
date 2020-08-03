@@ -62,3 +62,20 @@ input.formInput{
     -webkit-user-select: none; /* Safari、Chrome */
     -ms-user-select: none; /* IE10 */
 }
+.scroll-y{
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+        display:none;
+    }
+}
+.scroll-x{
+    white-space: nowrap;
+    overflow-x: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+        display:none;
+    }
+}
