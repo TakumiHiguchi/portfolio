@@ -5,23 +5,34 @@ import { faChevronRight,faChevronDown,faShareAlt,faShieldAlt,faBook } from "@for
 import './css/pc/Works.scss'
 import './css/sm/smWorks.scss'
 
+//中身3000*1700
+//https://browserframe.com
+import Proofly_image from './images/Proofly.png'
+import Music_branchwith_image from './images/music_branchwith.png'
+import Bitcoin_image from './images/Bitcoin.png'
+import Portfolio_image from './images/Portfolio.png'
+
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 const IMAGEURL = "https://hiiragi000.xsrv.jp";
 
 const images = [
-    [IMAGEURL+"/images/portfolio/Proofly.jpeg"],
-    [IMAGEURL+"/images/portfolio/Nurture.jpeg",IMAGEURL+"/images/portfolio/Nurture1.jpeg",IMAGEURL+"/images/portfolio/Nurture2.jpeg",IMAGEURL+"/images/portfolio/Nurture3.jpeg"],
-    [IMAGEURL+"/images/portfolio/musicBW.jpeg"],
-    [IMAGEURL+"/images/portfolio/bitcoinex1.jpeg"],
-    [IMAGEURL+"/images/portfolio/portfolio.jpeg"],
+    [Proofly_image],
+    [IMAGEURL+"/images/portfolio/Nurture.png",IMAGEURL+"/images/portfolio/Nurture1.png",IMAGEURL+"/images/portfolio/Nurture2.png",IMAGEURL+"/images/portfolio/Nurture3.png"],
+    [Music_branchwith_image],
+    [Bitcoin_image],
+    [Portfolio_image],
     [IMAGEURL+"/images/portfolio/portfolio.jpeg"]
 ];
 
 const content=[
-    [],
+    ["トップページ"],
     ["ランディングページ","ログイン画面","週表示のカレンダー","カレンダー設定画面"],
+    ["トップページ"],
+    ["トップページ"],
+    ["トップページ"],
+    ["トップページ"],
 ]
 
 const ChevronRight ={
@@ -37,113 +48,143 @@ const settings = {
     speed: 500
 };
 export default class Works extends Component{
-    constructor(props){
-        super(props);
-        this.state={
-            popup:false,
-            target:0
+  constructor(props){
+    super(props);
+    this.state={
+      popup: -1,
+      target:0
+    }
+  }
+  PopupToggle(type){
+    if(this.state.popup === -1){
+      this.setState({popup:true,target:type});
+    }else{
+      this.setState({popup:!this.state.popup,target:type});
+    }
+  }
+  render(){
+    return(
+      <div>
+        <div className="wroksBox">
+          <div className="flex-jus-between worksInner">
+            <div className="workBox" onClick={() => this.PopupToggle(0) }>
+              <img alt="Proofly" src={Proofly_image} />
+              <p>Proofly</p>
+            </div>
+            <div className="workBox" onClick={() => this.PopupToggle(1) }>
+              <img alt="Nurture" src={IMAGEURL+"/images/portfolio/Nurture.png"} />
+              <p>N:urture</p>
+            </div>
+            <div className="workBox" onClick={() => this.PopupToggle(2) }>
+              <img alt="musicBW" src={Music_branchwith_image} />
+              <p>music.branchwith</p>
+            </div>
+          </div>
+          <div className="flex-jus-between worksInner">
+            <div className="workBox" onClick={() => this.PopupToggle(3) }>
+              <img alt="bitcoinex1" src={Bitcoin_image} />
+              <p>Bitcoin explorer</p>
+            </div>
+            <div className="workBox" onClick={() => this.PopupToggle(4) }>
+              <img alt="Proofly" src={Portfolio_image} />
+              <p>Takumi's Portfolio</p>
+            </div>
+            <div className="workBox">
+            </div>
+          </div>
+        </div>
+        {this.state.popup != -1 &&
+          <Popup isPopup={this.state.popup} target={this.state.target} action={(type) => this.PopupToggle(type)}/>
         }
-    }
-    
-    PopupToggle(type){
-        this.setState({popup:!this.state.popup,target:type});
-    }
-    render(){
-        
-        return(
-               <div>
-                   <div className="wroksBox">
-                        <div className="flex-jus-between worksInner">
-                            <div className="workBox" onClick={() => this.PopupToggle(0) }>
-                                <img alt="Proofly" src={IMAGEURL+"/images/portfolio/Proofly.jpeg"} />
-                                <p>Proofly</p>
-                            </div>
-                            <div className="workBox" onClick={() => this.PopupToggle(1) }>
-                                <img alt="Nurture" src={IMAGEURL+"/images/portfolio/Nurture.jpeg"} />
-                                <p>N:urture</p>
-                            </div>
-                            <div className="workBox" onClick={() => this.PopupToggle(2) }>
-                                <img alt="musicBW" src={IMAGEURL+"/images/portfolio/musicBW.jpeg"} />
-                                <p>music.branchwith</p>
-                            </div>
-                        </div>
-                        <div className="flex-jus-between worksInner">
-                            <div className="workBox" onClick={() => this.PopupToggle(3) }>
-                                <img alt="bitcoinex1" src={IMAGEURL+"/images/portfolio/bitcoinex1.jpeg"} />
-                                <p>Bitcoin explorer</p>
-                            </div>
-                            <div className="workBox" onClick={() => this.PopupToggle(4) }>
-                                <img alt="Proofly" src={IMAGEURL+"/images/portfolio/portfolio.jpeg"} />
-                                <p>Takumi's Portfolio</p>
-                            </div>
-                            <div className="workBox">
-                            </div>
-                        </div>
-                   </div>
-                   <Popup isPopup={this.state.popup} target={this.state.target} action={(type) => this.PopupToggle(type)}/>
-               </div>
-               );
-    }
+      </div>
+    );
+  }
 }
 
 class Popup extends Component{
-    Body(type){
-        if(type == 0){
-            return(
-                   <div className="popWrokBox flex scroll-y">
-                        <div className="imageBox">
-                            <img alt="Proofly" src={images[type][0]} />
-                        </div>
-                        <Proofly />
-                   </div>
-                   );
-        }else if(type == 1){
-            return(
-                   <div className="popWrokBox flex scroll-y">
-                        <div className="imageBox">
-                            <Slider {...settings}>
-                                {images[type].map((data,index)=>
-                                    <>
-                                        <img alt="Nurture" src={data} />
-                                        <div className="flex-jus-center content">{content[type][index]}</div>
-                                    </>
-                                )}
-                            </Slider>
-                        </div>
-                        <Nurture />
-                   </div>
-                   );
-        }else if(type == 2){
-            return(
-                   <div className="popWrokBox flex scroll-y">
-                        <div className="imageBox">
-                            <img alt="music.branchwith" src={images[type][0]} />
-                        </div>
-                        <MBW />
-                   </div>
-                   );
-        }else if(type == 3){
-            return(
-                   <div className="popWrokBox flex scroll-y">
-                        <div className="imageBox">
-                            {images[type].map((data)=>
-                                <img alt="bitcoin explorer" src={data} />
-                            )}
-                        </div>
-                        <Bitcoin />
-                   </div>
-                   );
-        }else{
-            return(
-            <div className="popWrokBox flex scroll-y">
-                 <div className="imageBox">
-                     <img alt="Takumi's portfolio" src={images[type][0]} />
-                 </div>
-                 <Portfolio />
-            </div>
-            );
-        }
+  Body(type){
+    if(type == 0){
+      return(
+        <div className="popWrokBox scroll-y">
+          <div className="imageBox">
+            <Slider {...settings}>
+              {images[type].map((data,index)=>
+                <>
+                  <img alt="Proofly" src={data} />
+                  <div className="flex-jus-center content">{content[type][index]}</div>
+                </>
+              )}
+            </Slider>
+          </div>
+          <Proofly />
+        </div>
+      );
+    }else if(type == 1){
+      return(
+        <div className="popWrokBox scroll-y">
+          <div className="imageBox">
+            <Slider {...settings}>
+              {images[type].map((data,index)=>
+                <>
+                  <img alt="Nurture" src={data} />
+                  <div className="flex-jus-center content">{content[type][index]}</div>
+                </>
+              )}
+            </Slider>
+          </div>
+          <Nurture />
+        </div>
+      );
+    }else if(type == 2){
+      return(
+        <div className="popWrokBox scroll-y">
+          <div className="imageBox">
+            <Slider {...settings}>
+              {images[type].map((data,index)=>
+                <>
+                  <img alt="music.branchwith" src={data} />
+                  <div className="flex-jus-center content">{content[type][index]}</div>
+                </>
+              )}
+            </Slider>
+          </div>
+          <MBW />
+        </div>
+      );
+    }else if(type == 3){
+      return(
+        <div className="popWrokBox scroll-y">
+          <div className="imageBox">
+            <Slider {...settings}>
+              {images[type].map((data,index)=>
+                <>
+                  <img alt="bitcoin explorer" src={data} />
+                  <div className="flex-jus-center content">{content[type][index]}</div>
+                </>
+              )}
+            </Slider>
+          </div>
+          <Bitcoin />
+        </div>
+      );
+    }else{
+      return(
+        <div className="popWrokBox scroll-y">
+          <div className="imageBox">
+            <Slider {...settings}>
+              {images[type].map((data,index)=>
+                <>
+                  <img alt="Takumi's portfolio" src={data} />
+                  <div className="flex-jus-center content">{content[type][index]}</div>
+                </>
+              )}
+            </Slider>
+          </div>
+          <Portfolio />
+        </div>
+      );
     }
+  }
     render(){
         return(
                <div className={this.props.isPopup ? 'popup popup_toggle_effect' : 'popup popup_toggle_effect_de'} >
@@ -182,14 +223,18 @@ const Proofly = (props) =>{
 }
 
 const Nurture = (props) =>{
+    const day1 = new Date("2020/8/1");
+    const day2 = new Date();
+    const day = Math.ceil((day2-day1)/(60*60*24*1000))
     return(
            <div className="body scroll-y">
                <h3>N:urture</h3>
                <div class="lineIncontentbox">
-                   <p>日本大学生のための時間割管理アプリです。10年間分の時間割を、学期別にカレンダーという枠組みの中に保存して簡単に見ることができます。</p>
-                   <p>作成したカレンダーは友人や先生、先輩と共有できます。</p>
-                   <p>React.jsを初めて採用した作品で、SPAで制作しました。また、SPAで初めて、Oauth2での認証を導入しました。</p>
-                   <p>制作期間: ver2.0: 2020/6/15 ~ 2020/7/31</p><p>運営開始日: 2020年8月1日</p><p>運営期間: -</p>
+                   <p>日本大学生のための時間割管理アプリです。10年間分の時間割を、学期別にカレンダーという枠組みの中に保存して簡単に管理することができます。作成したカレンダーは友人や先生、先輩と共有したり、公開されているカレンダーをフォローしてカレンダーに反映させることができます。</p>
+                   <p>授業の他にもタスクや、試験、授業変更など日大生が学校生活で必要な様々なオブジェクトを追加でき、直感的で、違和感なく使用できるように機能を実装しました。</p>
+                   <p>また、UI面では、すでに登録されている時間割はワンクリックで登録できるなど、極力ユーザーに操作させないUIを目指しました。</p>
+                   <p>React.jsを初めて採用した作品で、SPAで制作しています。また、SPAで初めて、Oauth2での認証を導入しました。</p>
+                   <p>制作期間: 2020/6/15 ~ 2020/7/31</p><p>運営開始日: 2020年8月1日</p><p>運営期間: {day}日</p>
                </div>
                <div className="h-line">使用言語、フレームワーク等</div>
                <div className="lineIncontentbox">

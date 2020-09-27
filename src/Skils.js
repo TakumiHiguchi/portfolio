@@ -11,13 +11,13 @@ const data = [
     subject: 'CSS', A: 4, B: 3, fullMark: 5,
   },
   {
-    subject: 'React.js', A: 3, B: 3, fullMark: 5,
+    subject: 'React.js', A: 4, B: 3, fullMark: 5,
   },
   {
     subject: 'Vue.js', A: 1, B: 3, fullMark: 5,
   },
   {
-    subject: 'jQuery', A: 2, B: 3, fullMark: 5,
+    subject: 'jQuery', A: 3, B: 3, fullMark: 5,
   },
   {
     subject: 'SCSS', A: 3, B: 3, fullMark: 5,
@@ -138,7 +138,7 @@ export default class Skils extends Component{
                        </RadarChart>
                     </div>
                     <p>私が今までの活動で習得してきたスキルをレーダーチャートで表現しました。</p>
-                    <p>自分のやりたいことをやるために広く浅くスキルを習得してきたため、専門性の低さが弱点です。</p>
+                    <p>1: 触ったことがある程度、2: 個人開発で使用したことがある程度、3: 個人開発で使用したことがあって1年以上触っているもの、4: 実務で使用したことがあるもの</p>
                     <p>今後はバックエンド系の開発や、スマート・コントラクトの業務に携わる経験を増やし、理解を深めたいと考えています。</p>
                            
                            

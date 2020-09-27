@@ -88,17 +88,16 @@ function App() {
               
           </div>
       </section>
-          
+        {/*
       <section className="section secNews" id="eb">
           <div className="section-inner">
               <h2 className="leftIndex">
                     Engineer blog and News
               </h2>
               <News />
-              
           </div>
-          
       </section>
+        */}
       <footer className="flex-jus-center" id="contact">
           <div>© 2019 - 2020　Takumi's portfolio</div>
       </footer>
