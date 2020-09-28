@@ -242,7 +242,7 @@ const Nurture = (props) =>{
                </div>
                <div className="h-line">Links</div>
                <div className="lineIncontentbox">
-                   <div><a className="linkblock LBcolor1" href="https://java.cse.ce.nihon-u.ac.jp/daikibo2020/u306171/" target="_blank">Demo (Javaサーバ)<FontAwesomeIcon style={ChevronRight} icon={faChevronRight} /></a></div>
+                   <div><a className="linkblock LBcolor1" href="https://dev.d2300fs4r3axuy.amplifyapp.com" target="_blank">Demo<FontAwesomeIcon style={ChevronRight} icon={faChevronRight} /></a></div>
                    <a className="linkblock LBcolor1" href="https://github.com/TakumiHiguchi/Nurture-front" target="_blank">github(front)<FontAwesomeIcon style={ChevronRight} icon={faChevronRight} /></a>
                    <a className="linkblock LBcolor2" href="https://github.com/TakumiHiguchi/Nurture-backendAPI" target="_blank">github(API)<FontAwesomeIcon style={ChevronRight} icon={faChevronRight} /></a>
                </div>
@@ -266,7 +266,7 @@ const MBW = (props) =>{
                </div>
                <div className="h-line">Links</div>
                <div className="lineIncontentbox">
-                   <a className="linkblock LBcolor1" href="https://mbw6.herokuapp.com" target="_blank">Demo<FontAwesomeIcon style={ChevronRight} icon={faChevronRight} /></a>
+                   <a className="linkblock LBcolor1" href="https://mbw1.herokuapp.com" target="_blank">Demo<FontAwesomeIcon style={ChevronRight} icon={faChevronRight} /></a>
                    <a className="linkblock LBcolor2" href="https://github.com/TakumiHiguchi/music.branchwith" target="_blank">github<FontAwesomeIcon style={ChevronRight} icon={faChevronRight} /></a>
                </div>
            </div>
