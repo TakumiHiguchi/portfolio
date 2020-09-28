@@ -4,6 +4,9 @@ import './index.scss';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+import viewportUnit from 'viewport-units-buggyfill';
+viewportUnit.init({force: true});
+
 ReactDOM.render(
   <React.StrictMode>
     <App />

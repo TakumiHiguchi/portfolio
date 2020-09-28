@@ -15,6 +15,9 @@ import Portfolio_image from './images/Portfolio.png'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
+import viewportUnit from 'viewport-units-buggyfill';
+viewportUnit.init({force: true});
+
 const IMAGEURL = "https://hiiragi000.xsrv.jp";
 
 const images = [
