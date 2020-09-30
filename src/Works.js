@@ -11,6 +11,7 @@ import Proofly_image from './images/Proofly.png'
 import Music_branchwith_image from './images/music_branchwith.png'
 import Bitcoin_image from './images/Bitcoin.png'
 import Portfolio_image from './images/Portfolio.png'
+import Webgui_image from './images/webgui.png'
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -26,7 +27,7 @@ const images = [
     [Music_branchwith_image],
     [Bitcoin_image],
     [Portfolio_image],
-    [IMAGEURL+"/images/portfolio/portfolio.jpeg"]
+    [Webgui_image]
 ];
 
 const content=[
@@ -92,7 +93,9 @@ export default class Works extends Component{
               <img alt="Proofly" src={Portfolio_image} />
               <p>Takumi's Portfolio</p>
             </div>
-            <div className="workBox">
+            <div className="workBox" onClick={() => this.PopupToggle(5) }>
+              <img alt="webgui" src={Webgui_image} />
+              <p>music.branchwith WEBGUI</p>
             </div>
           </div>
         </div>
@@ -170,7 +173,7 @@ class Popup extends Component{
           <Bitcoin />
         </div>
       );
-    }else{
+    }else if(type == 4){
       return(
         <div className="popWrokBox scroll-y">
           <div className="imageBox">
@@ -184,6 +187,22 @@ class Popup extends Component{
             </Slider>
           </div>
           <Portfolio />
+        </div>
+      );
+    }else if(type == 5){
+      return(
+        <div className="popWrokBox scroll-y">
+          <div className="imageBox">
+            <Slider {...settings}>
+              {images[type].map((data,index)=>
+                <>
+                  <img alt="webgui" src={data} />
+                  <div className="flex-jus-center content">{content[type][index]}</div>
+                </>
+              )}
+            </Slider>
+          </div>
+          <Webgui />
         </div>
       );
     }
@@ -319,4 +338,24 @@ const Portfolio = (props) =>{
                </div>
            </div>
            );
+}
+
+const Webgui = (props) =>{
+  return(
+         <div className="body">
+             <h3>music.branchwith WEBGUI</h3>
+             <div class="lineIncontentbox">
+                 <p>music.branchwithを管理するコンソールです。</p>
+                 <p>記事の公開非公開、記事の作成や編集、ライターの管理などmusic.branchwithをこのサイトで全て管理しています。</p>
+                 <p>ライターさんもこのサイトで執筆していただいています。</p>
+                 <p>制作時間: 8日</p><p>運営開始日: 2020年9月13日</p>
+             </div>
+             <div className="h-line">使用言語、フレームワーク等</div>
+             <div className="lineIncontentbox">
+                 <p>HTML、SCSS(CSS)、React.js(javaScript)、JSX、material-UI、firebase Hosting等</p>
+             </div>
+             <div className="h-line">Links</div>
+             <p>金銭の管理があるため、ソースコードを公開しておりません。</p>
+         </div>
+         );
 }
