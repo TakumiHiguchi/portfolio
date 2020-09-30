@@ -71,10 +71,6 @@ export default class Works extends Component{
       <div>
         <div className="wroksBox">
           <div className="flex-jus-between worksInner">
-            <div className="workBox" onClick={() => this.PopupToggle(0) }>
-              <img alt="Proofly" src={Proofly_image} />
-              <p>Proofly</p>
-            </div>
             <div className="workBox" onClick={() => this.PopupToggle(1) }>
               <img alt="Nurture" src={IMAGEURL+"/images/portfolio/Nurture.png"} />
               <p>N:urture</p>
@@ -82,6 +78,10 @@ export default class Works extends Component{
             <div className="workBox" onClick={() => this.PopupToggle(2) }>
               <img alt="musicBW" src={Music_branchwith_image} />
               <p>music.branchwith</p>
+            </div>
+            <div className="workBox" onClick={() => this.PopupToggle(0) }>
+              <img alt="Proofly" src={Proofly_image} />
+              <p>Proofly</p>
             </div>
           </div>
           <div className="flex-jus-between worksInner">
@@ -228,8 +228,8 @@ const Proofly = (props) =>{
                <div className="lineIncontentbox">
                    <p>indexを承認制にした文章投稿サイトです。記事をERC721の規格に沿ってトークン化し著作権を紐付け、トークンを売買することで、記事の著作権を”スマートに”移動できる環境の構築を目指しています。</p>
                        <p>ゆくゆくは画像や動画などもトークン化し、コンテンツに価値をつけ、画像を公開するだけで収入を得られるプラットフォームを目指しています。</p>
-                       <p>現在は、ERC721のトークン周りを製作中です。</p>
-                   <p>制作時間: 3ヶ月〜</p><p>運営開始日: 2020年5月12日</p>
+                       <p>現在は、ERC721のトークン周りを製作中です。（2020年6月の法改正で仮想通貨登録業者の資格がないものがERC721を扱うのはグレーになったので、開発を中断しております）</p>
+                   <p>制作時間: 3ヶ月〜</p><p>運営開始日: ----</p>
                </div>
                <div className="h-line">使用言語、フレームワーク等</div>
                <div className="lineIncontentbox">
@@ -260,7 +260,7 @@ const Nurture = (props) =>{
                </div>
                <div className="h-line">使用言語、フレームワーク等</div>
                <div className="lineIncontentbox">
-                   <p>HTML、SCSS(CSS)、React.js、JSX、Java、Ruby(API)、Ruby on Rails(API)、PostgreSQL、Sqlite（開発）、git、Heroku</p>
+                   <p>HTML、SCSS(CSS)、React.js、JSX、Ruby(API)、Ruby on Rails(API)、PostgreSQL、Sqlite（開発）、git、AWS</p>
                </div>
                <div className="h-line">Links</div>
                <div className="lineIncontentbox">
@@ -279,12 +279,12 @@ const MBW = (props) =>{
                <div class="lineIncontentbox">
                    <p>初めてRuby on Railsを使用したwebサイトです。Ruby on Railsを学習しながら制作したため、制作時間がかなりかかってしまいました。Herokuのschedulerを用いることで、毎日定刻にweb上から歌詞をスクレイピングし、DBに格納ののち、urlを生成して歌詞を自動公開しています。</p>
                    <p>また、スクレイピングした歌詞のYoutube動画のurlをGoogleAPIで取得し、自動で再生できるようにしています。（現在はquotaが足りないため停止）</p>
-                    <p>サイト内の記事はほとんど全てclowdworksで募集したライターさんに執筆していただいています。（現在はProoflyに移行）</p>
+                    <p>サイト内の記事はほとんど全てclowdworksで募集したライターさんに執筆していただいています。</p>
                    <p>制作時間: ３ヶ月</p><p>運営開始日: 2018年10月29日</p>
                </div>
                <div className="h-line">使用言語、フレームワーク等</div>
                <div className="lineIncontentbox">
-                   <p>HTML、SCSS(CSS)、React.js、Ruby、PostgreSQL、Sqlite（開発）、mySQL（開発）、Ruby on Rails、git、Heroku等</p>
+                   <p>HTML、SCSS(CSS)、React.js、Ruby、PostgreSQL、Sqlite（開発）、Ruby on Rails、git、Heroku等</p>
                </div>
                <div className="h-line">Links</div>
                <div className="lineIncontentbox">
